@@ -1,0 +1,32 @@
+{
+  "name": "mcp-server-milvus",
+  "version": "0.1.1",
+  "description": "MCP server for using Milvus",
+  "license": "MIT",
+  "author": "Yihong Wang, yihongwang@gmail.com",
+  "homepage": "https://github.com/yhwang/mcp-tool-server-milvus",
+  "bugs": "https://github.com/yhwang/mcp-tool-server-milvus/issues",
+  "type": "module",
+  "bin": {
+    "mcp-server-milvus": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "@zilliz/milvus2-sdk-node": "^2.5.8",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.3",
+    "shx": "^0.3.4",
+    "typescript": "^5.7.2"
+  }
+}
