@@ -31,7 +31,24 @@ function createServer() {
         }
     });
 
-    // Add the insert tool
+    // Add the insert tool to insert multiple records
+    server.tool("insert-multiple",
+        'insert the texts into the collection',
+        { texts: z.array(z.string()) },
+        async ({texts}) => {
+            let rev = 0;
+            try {
+                rev = await client.insert(texts);
+            } catch (error) {
+                console.log(`insert error: ${JSON.stringify(error, null, 2)}`);
+            }
+            return {
+                content: [{ type: "text", text: `${rev}`}]
+            };
+        }
+    );
+
+    // Add the insert tool to insert single record
     server.tool("insert",
         'insert the text into the collection',
         { text: z.string() },
