@@ -1,8 +1,11 @@
 # mcp-tool-server-milvus
 A MCP server which provides tools function to insert into and query data from the Milvus vector database.
 
-By default, the server creates a database and a collection. The insert and search tools are operated on
-the default database and collection.
+By default, the server creates a database and a collection. The insert and search tools operate upon
+the default database and collection. You can use the following env vars to configure the database and collection:
+- `MILVUS_DB`: The name of the Milvus database. Default is `mcp_db`. The db will be created if it does not exist.
+- `MILVUS_COLLECTION`: The name of the Milvus collection. Default is `full_text_search`.
+  The collection will be created if it does not exist.
 
 ## Run MCP Server
 
