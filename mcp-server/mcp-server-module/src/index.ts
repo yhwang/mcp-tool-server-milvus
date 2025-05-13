@@ -71,7 +71,10 @@ function createServer() {
         async ({text}) => {
             const result = await client.search(text);
             return {
-                content: result.map((item) => ({ type: "text", text: item.text }))
+                content: result.map((item) => ({
+                    type: "text",
+                    text: JSON.stringify({id: item.id, contexts: item.text})
+                }))
             };
         }
     );
